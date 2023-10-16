@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="KELOMPOK 6"
+            android:text="KELOMPOK 5"
             android:textSize="30sp"
             android:textStyle="bold"
             android:textColor="#FF0000"/>
