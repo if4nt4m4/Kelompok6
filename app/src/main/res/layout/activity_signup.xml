@@ -101,11 +101,11 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/bt_masuk"
+            android:id="@+id/bt_daftar"
             android:layout_width="318dp"
             android:layout_height="wrap_content"
             android:paddingStart="20dp"
-            android:text="Masuk"
+            android:text="Daftar"
             tools:ignore="RtlSymmetry"
             android:layout_gravity="center"/>
 
