@@ -54,7 +54,7 @@
                     android:id="@+id/et_namadepan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="Nama Depan"
+                    android:hint="Nama Depan   "
                     android:padding="10dp"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
