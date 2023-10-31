@@ -19,6 +19,7 @@ class LoginActivity : AppCompatActivity() {
         val emailEditText = findViewById<EditText>(R.id.et_email)
         val passwordEditText = findViewById<EditText>(R.id.et_pwd)
 
+        //Mengimplementasikan lambda
         Masuk.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
@@ -41,7 +42,7 @@ class LoginActivity : AppCompatActivity() {
         })
         //mengimplementasikan lambda
         Daftar.setOnClickListener {
-            val intent = Intent (this@LoginActivity, SignupActivity::class.java)
+            val intent = Intent (this, SignupActivity::class.java)
             startActivity(intent)
         }
     }
