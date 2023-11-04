@@ -35,16 +35,13 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.appcompat.widget.SearchView
+        android:id="@+id/sv_cari"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="#c0c0c0"
+        app:queryHint="Search" />
 
-
-
-    <!--    <TextView-->
-<!--        android:id="@+id/tv_hasil_pencarian"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:textSize="18sp"-->
-<!--        android:textStyle="bold"-->
-<!--        android:text="@string/hasil_pencarian"-->
-<!--        android:layout_marginBottom="16dp" />-->
 
 </LinearLayout>
