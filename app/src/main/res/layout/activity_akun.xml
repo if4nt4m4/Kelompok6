@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AkunActivity"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <ImageView
+        android:id="@+id/iv_akun"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:layout_marginBottom="20dp"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Nama"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_namaakun"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_nama"
+        android:textSize="15sp"
+        android:inputType="text"
+        android:autofillHints="nama"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Username"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_username"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_user"
+        android:textSize="15sp"
+        android:autofillHints="username"
+        android:inputType="text"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No. HP"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_nohp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_hp"
+        android:textSize="15sp"
+        android:autofillHints="no.hp"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@mipmap/ic_email"
+        android:textSize="15sp"
+        android:autofillHints="email"
+        android:inputType="textEmailAddress"
+        tools:ignore="LabelFor" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="70dp"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/bt_batal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Batal"
+            android:layout_marginEnd="60dp"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/bt_simpan"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Simpan"
+            android:layout_marginStart="60dp"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+
+</LinearLayout>
