@@ -7,11 +7,30 @@
     tools:context=".HomeAdminActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/back"
+        android:layout_margin="10dp"/>
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:src="@drawable/logo"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"/>
+
+    <Button
+        android:id="@+id/bt_manage"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Home Admin"
-        android:textSize="40sp"
-        android:gravity="center"/>
+        android:text="Manage"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:backgroundTint="@color/design_default_color_primary_variant"
+        android:layout_margin="40dp"
+        android:layout_gravity="center"/>
 
 </LinearLayout>
