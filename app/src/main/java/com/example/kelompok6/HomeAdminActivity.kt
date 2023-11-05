@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import androidx.core.content.ContextCompat.startActivity
 
 class HomeAdminActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
