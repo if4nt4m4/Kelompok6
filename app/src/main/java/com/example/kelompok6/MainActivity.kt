@@ -1,5 +1,6 @@
 package com.example.kelompok6
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -20,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         setContentView(R.layout.activity_hotel_ticket_list)
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_hotelticket)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         // Membuat adapter dan menghubungkannya dengan recyclerView
@@ -44,5 +46,4 @@ class MainActivity : AppCompatActivity() {
 
         return ticketList
     }
-}
 }
