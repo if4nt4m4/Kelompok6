@@ -85,10 +85,12 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp">
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/tv_cari"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Cari"
@@ -110,13 +112,13 @@
             android:textSize="25sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/textView2"
+            app:layout_constraintEnd_toStartOf="@+id/tv_bantuan"
             app:layout_constraintHorizontal_bias="0.445"
-            app:layout_constraintStart_toEndOf="@+id/textView3"
+            app:layout_constraintStart_toEndOf="@+id/tv_cari"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/tv_bantuan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Bantuan"
