@@ -41,6 +41,9 @@
         <activity
             android:name=".HasilPencarianActivity"
             android:exported="true" />
+        <activity
+            android:name=".TicketActivity"
+            android:exported="true"/>
     </application>
 
 </manifest>
