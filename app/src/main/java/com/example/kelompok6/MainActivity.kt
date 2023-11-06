@@ -5,6 +5,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -18,5 +21,27 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, AkunActivity::class.java)
             startActivity(intent)
         }
+
+        val recyclerViewkota = findViewById<RecyclerView>(R.id.rv_kota)
+        recyclerViewkota.layoutManager = LinearLayoutManager(this)
+
+        val kotaList = createKotaList()
+        val adapter = KotaAdapter(kotaList)
+        recyclerViewkota.adapter = adapter
+    }
+
+    private fun createKotaList(): MutableList<Kota> {
+        val kotaList = mutableListOf<Kota>()
+
+        val kota1 = Kota(R.drawable.logo, "Madiun")
+        kotaList.add(kota1)
+
+        val kota2 = Kota(R.drawable.logo, "Magetan")
+        kotaList.add(kota2)
+
+        val kota3 = Kota(R.drawable.logo, "Ngawi")
+        kotaList.add(kota3)
+
+        return kotaList
     }
 }
