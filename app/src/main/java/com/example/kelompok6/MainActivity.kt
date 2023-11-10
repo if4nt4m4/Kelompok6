@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         val recyclerViewkota = findViewById<RecyclerView>(R.id.rv_kota)
-        recyclerViewkota.layoutManager = LinearLayoutManager(this)
 
         val kotaList = createKotaList()
         val adapter = KotaAdapter(kotaList)
@@ -41,6 +40,9 @@ class MainActivity : AppCompatActivity() {
 
         val kota3 = Kota(R.drawable.logo, "Ngawi")
         kotaList.add(kota3)
+
+        val kota4 = Kota(R.drawable.logo, "Caruban")
+        kotaList.add(kota4)
 
         return kotaList
     }

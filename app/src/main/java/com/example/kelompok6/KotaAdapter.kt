@@ -10,8 +10,7 @@ import android.widget.TextView
 
 class KotaAdapter (private val kotalist: MutableList<Kota>): RecyclerView.Adapter<KotaAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KotaAdapter.ViewHolder {
-        val view =
-            LayoutInflater.from(parent.context).inflate(R.layout.activity_kota, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_kota, parent, false)
         return ViewHolder(view)
     }
 
