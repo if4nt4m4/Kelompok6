@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class WisataAdapter(private val wisataList: MutableList<Wisata> ) : RecyclerView.Adapter<WisataAdapter.ViewHolder>(){
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WisataAdapter.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_kota, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_wisata, parent, false)
         return ViewHolder(view)
     }
     @SuppressLint("NotifyDataSetChanged")
