@@ -23,10 +23,25 @@ class MainActivity : AppCompatActivity() {
         }
 
         val recyclerViewkota = findViewById<RecyclerView>(R.id.rv_kota)
+        val recyclerViewWisata = findViewById<RecyclerView>(R.id.rv_wisata)
 
         val kotaList = createKotaList()
-        val adapter = KotaAdapter(kotaList)
-        recyclerViewkota.adapter = adapter
+        val adapter1 = KotaAdapter(kotaList)
+        recyclerViewkota.adapter = adapter1
+
+        val wisataList = createWisataList()
+        val adapter2 = WisataAdapter(wisataList)
+        recyclerViewWisata.adapter = adapter2
+
+    }
+
+    private fun createWisataList(): MutableList<Wisata> {
+        val wisataList = mutableListOf<Wisata>()
+
+        val wisata1 = Wisata(R.drawable.logo, "Monumen Kresek")
+        wisataList.add(wisata1)
+
+        return wisataList
     }
 
     private fun createKotaList(): MutableList<Kota> {
