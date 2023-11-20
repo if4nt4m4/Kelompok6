@@ -14,7 +14,7 @@ class WisataAdapter(private val wisataList: MutableList<Wisata> ) : RecyclerView
         return ViewHolder(view)
     }
     @SuppressLint("NotifyDataSetChanged")
-    fun addTicket(wisata: Wisata) {
+    fun addWisata(wisata: Wisata) {
         wisataList.add(wisata)
         notifyDataSetChanged() // Memberitahu adapter bahwa data telah berubah
     }
