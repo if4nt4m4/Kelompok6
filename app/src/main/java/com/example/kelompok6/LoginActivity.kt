@@ -21,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        auth = FirebaseAuth.getInstance()
+
         binding.tvDaftar.setOnClickListener {
             val intent = Intent(this, SignupActivity::class.java)
             startActivity(intent)
