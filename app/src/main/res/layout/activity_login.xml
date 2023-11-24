@@ -47,14 +47,14 @@
             android:padding="20dp">
 
             <EditText
-                android:id="@+id/et_email"
+                android:id="@+id/et_emaillogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email ID"
                 android:padding="20dp"/>
 
             <EditText
-                android:id="@+id/et_pwd"
+                android:id="@+id/et_pwdlogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"

@@ -79,14 +79,14 @@
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <EditText
-                android:id="@+id/et_email"
+                android:id="@+id/et_emailsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email ID"
                 android:padding="20dp"/>
 
             <EditText
-                android:id="@+id/et_pwd"
+                android:id="@+id/et_pwdsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
