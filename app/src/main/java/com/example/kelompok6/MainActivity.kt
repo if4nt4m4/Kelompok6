@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -16,10 +18,22 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         val akunImageView = findViewById<ImageView>(R.id.iv_akun)
+        val tv_cari = findViewById<TextView>(R.id.tv_cari)
+        val textView = findViewById<TextView>(R.id.textView)
+        val tv_bantuan = findViewById<TextView>(R.id.tv_bantuan)
 
         akunImageView.setOnClickListener {
             val intent = Intent(this, AkunActivity::class.java)
             startActivity(intent)
+        }
+        tv_cari.setOnClickListener{
+            replaceFragment(CariFragment())
+        }
+        textView.setOnClickListener {
+            replaceFragment(PemesananFragment())
+        }
+        tv_bantuan.setOnClickListener{
+            replaceFragment(BantuanFragment())
         }
 
         val recyclerViewkota = findViewById<RecyclerView>(R.id.rv_kota)
@@ -35,6 +49,12 @@ class MainActivity : AppCompatActivity() {
 
     }
 
+    private fun replaceFragment(fragment: Fragment){
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.fragmentContainer, fragment)
+        transaction.addToBackStack(null)
+        transaction.commit()
+    }
     private fun createWisataList(): MutableList<Wisata> {
         val wisataList = mutableListOf<Wisata>()
 
