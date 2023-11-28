@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailPembayaranActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/back" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Detail Pembayaran"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:layout_margin="10dp"
+                android:textStyle="bold"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Hotel"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#c0c0c0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_nmhotel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama  : "
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_namalngkp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="Kresnabayu Dr "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_nmhotel"/>
+
+                <TextView
+                    android:id="@+id/tv_alamathtl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Alamat : "
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nmhotel"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_alamat_hotel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:text="Madiun "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_namalngkp"
+                    app:layout_constraintStart_toEndOf="@id/tv_alamathtl"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_tipe"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tipe Kamar   : "
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_alamathtl"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_tipekamar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="100dp"
+                    android:text="Double Room"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_alamat_hotel"
+                    app:layout_constraintStart_toEndOf="@id/tv_alamathtl"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_jmlh"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Jumlah Pembayaran : "
+                    android:textSize="15sp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tipe"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <TextView
+                    android:id="@+id/tv_jmlhpembayaran"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="150dp"
+                    android:text="180.0000 "
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/tv_tipekamar"
+                    app:layout_constraintStart_toEndOf="@id/tv_tipekamar"
+                    />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <EditText
+            android:id="@+id/et_tglpesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Tangal Check In"
+            tools:ignore="HardcodedText" />
+
+        <EditText
+            android:id="@+id/et_tglkeluar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:hint="Tanggal Check Out"
+            tools:ignore="HardcodedText" />
+
+        <TextView
+            android:layout_width="match_parent" android:layout_height="wrap_content"
+            android:text="Pemesan"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:textColor="@color/black"/>
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:cardCornerRadius="10dp"
+            app:cardElevation="8dp"
+            app:cardBackgroundColor="#c0c0c0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:background="@color/white">
+
+                <TextView
+                    android:id="@+id/tv_nmpmsn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Nama  : "
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <EditText
+                    android:id="@+id/et_namapemesan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:hint="Masukkan Nama"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/tv_nmpmsn"/>
+
+                <TextView
+                    android:id="@+id/tv_nohp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No.HP : "
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nmpmsn"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/et_nohp_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:hint="Masukkan No Hp"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_namapemesan"
+                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_email"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email   : "
+                    android:textSize="15sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_nohp"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/et_email_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:hint="Masukkan Email"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_nohp_user"
+                    app:layout_constraintStart_toEndOf="@id/tv_nohp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_umur"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Umur   : "
+                    android:textSize="15sp"
+                    android:layout_marginTop="25dp"
+                    android:textColor="@color/black"
+                    app:layout_constraintTop_toBottomOf="@id/tv_email"
+                    app:layout_constraintStart_toStartOf="parent"/>
+
+                <EditText
+                    android:id="@+id/et_umuruser"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:hint="Masukkan Umur"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_email_user"
+                    app:layout_constraintStart_toEndOf="@id/et_email_user" />
+
+                <TextView
+                    android:id="@+id/tv_jmlhkmr"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"
+                    android:layout_marginTop="10dp"
+                    android:textColor="@color/black"
+                    android:text="Jumlah \n Kamar : "
+                    app:layout_constraintTop_toBottomOf="@id/tv_umur"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+                <EditText
+                    android:id="@+id/et_jmlh_kamar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="60dp"
+                    android:hint="Masukkan Jumlah Kamar"
+                    android:textColor="@color/black"
+                    android:textSize="15sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/et_umuruser"
+                    app:layout_constraintStart_toEndOf="@id/et_umuruser"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total yang harus di Bayarkan : "
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:textColor="#ff0000"
+            android:layout_marginStart="10dp"/>
+
+        <TextView
+            android:id="@+id/tv_total_pembayaran"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="2500000"
+            android:textColor="#ff0000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_margin="10dp"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/btn_cetak_pesan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pesan"
+            android:textSize="20sp"
+            android:layout_margin="5dp"/>
+
+    </LinearLayout>
+
+</ScrollView>
