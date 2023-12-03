@@ -2,6 +2,7 @@ package com.example.kelompok6
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.kelompok6.databinding.ActivityDetailPembayaranBinding
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
@@ -29,6 +30,12 @@ class DetailPembayaranActivity : AppCompatActivity() {
                 "email" to binding.etEmailUser.text.toString(),
                 "umur" to binding.etUmuruser.text.toString()
             )
+
+            databaseReference.child("Pemesanan").push().setValue(pemesanan).addOnSuccessListener {
+                Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+            }.addOnFailureListener {
+                Toast.makeText(this,"Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 }
