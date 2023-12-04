@@ -33,8 +33,8 @@
                 android:layout_height="wrap_content"
                 android:text="Lewati"
                 android:paddingTop="13dp"
-                android:textSize="20sp"
-                android:paddingStart="110dp"
+                android:textSize="15sp"
+                android:paddingStart="100dp"
                 android:textStyle="bold"
                 tools:ignore="RtlSymmetry"/>
 
