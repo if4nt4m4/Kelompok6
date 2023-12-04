@@ -58,8 +58,17 @@ class MainActivity : AppCompatActivity() {
     private fun createWisataList(): MutableList<Wisata> {
         val wisataList = mutableListOf<Wisata>()
 
-        val wisata1 = Wisata(R.drawable.logo, "Monumen Kresek")
+        val wisata1 = Wisata(R.drawable.wisata1, "Monumen Kresek")
         wisataList.add(wisata1)
+
+        val wisata2 = Wisata(R.drawable.wisata2,"Sarangan")
+        wisataList.add(wisata2)
+
+        val wisata3 = Wisata(R.drawable.wisata3, "Aloon-Aloon Ngawi")
+        wisataList.add(wisata3)
+
+        val wisata4 = Wisata(R.drawable.wisata4, "Aloon-Aloon Caruban")
+        wisataList.add(wisata4)
 
         return wisataList
     }
@@ -67,16 +76,16 @@ class MainActivity : AppCompatActivity() {
     private fun createKotaList(): MutableList<Kota> {
         val kotaList = mutableListOf<Kota>()
 
-        val kota1 = Kota(R.drawable.logo, "Madiun")
+        val kota1 = Kota(R.drawable.ayomadiun, "Madiun")
         kotaList.add(kota1)
 
-        val kota2 = Kota(R.drawable.logo, "Magetan")
+        val kota2 = Kota(R.drawable.ayomagetan, "Magetan")
         kotaList.add(kota2)
 
-        val kota3 = Kota(R.drawable.logo, "Ngawi")
+        val kota3 = Kota(R.drawable.ayongawi, "Ngawi")
         kotaList.add(kota3)
 
-        val kota4 = Kota(R.drawable.logo, "Caruban")
+        val kota4 = Kota(R.drawable.ayocaruban, "Caruban")
         kotaList.add(kota4)
 
         return kotaList
