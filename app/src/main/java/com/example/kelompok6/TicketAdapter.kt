@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TicketAdapter(private val ticketList: MutableList<Ticket>) : RecyclerView.Adapter<TicketAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_ticket, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pemesanan, parent, false)
         return ViewHolder(view)
     }
     fun addTicket(ticket: Ticket) {
