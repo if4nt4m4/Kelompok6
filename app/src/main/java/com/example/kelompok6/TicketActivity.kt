@@ -5,6 +5,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TicketActivity : AppCompatActivity() {
     @SuppressLint("MissingInflatedId")
@@ -21,12 +25,25 @@ class TicketActivity : AppCompatActivity() {
     private fun createTicketList(): MutableList<Ticket> {
         val ticketList = mutableListOf<Ticket>()
 
-        val ticket1 = Ticket("Hotel ABC", "2023-11-15", "Double Room", "2023-12-15")
-        ticketList.add(ticket1)
+        // Replace this section with Firebase code to fetch data
+        // For example, using Firebase Realtime Database
+        val databaseReference = FirebaseDatabase.getInstance().getReference("your_firebase_node")
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val firebaseTicket = dataSnapshot.getValue(Ticket::class.java)
+                    firebaseTicket?.let { ticketList.add(it) }
+                }
+                // Notify the adapter after fetching the data
+                adapter.notifyDataSetChanged()
+            }
 
-        val ticket2 = Ticket("Hotel XYZ", "2023-11-20", "Suite Room", "2023-12-20")
-        ticketList.add(ticket2)
+            override fun onCancelled(error: DatabaseError) {
+                // Handle errors
+            }
+        })
 
         return ticketList
     }
+
 }

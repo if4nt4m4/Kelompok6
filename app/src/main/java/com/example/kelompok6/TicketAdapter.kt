@@ -17,9 +17,9 @@ class TicketAdapter(private val ticketList: MutableList<Ticket>) : RecyclerView.
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val ticket = ticketList[position]
         holder.hotelNameTextView.text = ticket.hotelName
-        holder.bookingDateTextView.text = ticket.bookingDate
+        holder.bookingDateTextView.text = ticket.bookingDate.toString()
         holder.roomDetailsTextView.text = ticket.roomDetails
-        holder.dueDateTextView.text = ticket.dueDate
+        holder.dueDateTextView.text = ticket.paymentCode
     }
     override fun getItemCount(): Int {
         return ticketList.size
