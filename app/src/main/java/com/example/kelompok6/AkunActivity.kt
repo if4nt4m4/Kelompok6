@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.Toast
 import com.google.firebase.auth.FirebaseAuth
 
 class AkunActivity : AppCompatActivity() {
@@ -25,6 +26,7 @@ class AkunActivity : AppCompatActivity() {
         auth = FirebaseAuth.getInstance()
         auth.signOut()
         startActivity(Intent(this,LoginActivity::class.java))
+        Toast.makeText(this, "Berhasil Logout", Toast.LENGTH_SHORT).show()
         finish()
     }
 }
