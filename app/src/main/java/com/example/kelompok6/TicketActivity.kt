@@ -11,6 +11,8 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
 class TicketActivity : AppCompatActivity() {
+    private lateinit var adapter: TicketAdapter
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,14 +21,13 @@ class TicketActivity : AppCompatActivity() {
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val ticketList = createTicketList()
-        val adapter = TicketAdapter(ticketList)
+        adapter = TicketAdapter(ticketList)
         recyclerView.adapter = adapter
     }
+
     private fun createTicketList(): MutableList<Ticket> {
         val ticketList = mutableListOf<Ticket>()
 
-        // Replace this section with Firebase code to fetch data
-        // For example, using Firebase Realtime Database
         val databaseReference = FirebaseDatabase.getInstance().getReference("your_firebase_node")
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -45,5 +46,4 @@ class TicketActivity : AppCompatActivity() {
 
         return ticketList
     }
-
 }
