@@ -2,6 +2,7 @@ package com.example.kelompok6
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -28,8 +29,9 @@ class TicketActivity : AppCompatActivity() {
     private fun createTicketList(): MutableList<Ticket> {
         val ticketList = mutableListOf<Ticket>()
 
-        val databaseReference = FirebaseDatabase.getInstance().getReference("your_firebase_node")
+        val databaseReference = FirebaseDatabase.getInstance().getReference("Hotel")
         databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            @SuppressLint("NotifyDataSetChanged")
             override fun onDataChange(snapshot: DataSnapshot) {
                 for (dataSnapshot in snapshot.children) {
                     val firebaseTicket = dataSnapshot.getValue(Ticket::class.java)
@@ -40,7 +42,7 @@ class TicketActivity : AppCompatActivity() {
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle errors
+                Log.d("Database Error: ", error.getMessage())
             }
         })
 

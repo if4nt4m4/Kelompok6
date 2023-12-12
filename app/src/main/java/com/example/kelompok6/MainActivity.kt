@@ -21,9 +21,14 @@ class MainActivity : AppCompatActivity() {
         val tv_cari = findViewById<TextView>(R.id.tv_cari)
         val textView = findViewById<TextView>(R.id.textView)
         val tv_bantuan = findViewById<TextView>(R.id.tv_bantuan)
+        val iv_kota = findViewById<ImageView>(R.id.iv_kota)
 
         akunImageView.setOnClickListener {
             val intent = Intent(this, AkunActivity::class.java)
+            startActivity(intent)
+        }
+        iv_kota.setOnClickListener {
+            val intent = Intent(this, DetailHotelActivity::class.java)
             startActivity(intent)
         }
         tv_cari.setOnClickListener{
@@ -78,6 +83,7 @@ class MainActivity : AppCompatActivity() {
 
         val kota1 = Kota(R.drawable.ayomadiun, "Madiun")
         kotaList.add(kota1)
+
 
         val kota2 = Kota(R.drawable.ayomagetan, "Magetan")
         kotaList.add(kota2)
