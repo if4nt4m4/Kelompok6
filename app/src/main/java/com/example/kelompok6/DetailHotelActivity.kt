@@ -33,34 +33,11 @@ class DetailHotelActivity : AppCompatActivity() {
         kamarSuperior = findViewById(R.id.rb_superior)
         kamarStandard = findViewById(R.id.rb_standard)
         jumlahKamar = findViewById(R.id.et_jmlh_kamar)
-        totalPembayaran = findViewById(R.id.tv_total_pembayaran)
 
         database = FirebaseDatabase.getInstance().reference
 
         binding.btnPesanSekarang.setOnClickListener {
-            val jumlahKamar = jumlahKamar.text.toString().toIntOrNull()
 
-            if (jumlahKamar == null){
-                Toast.makeText(this, "Jumlah kamar harus berupa bilangan bulat", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-            var  hargaKamar = 0
-            if (kamarDeluxe.isChecked){
-                hargaKamar = 500000
-            }else if(kamarSuperior.isChecked){
-                hargaKamar = 400000
-            }else if (kamarStandard.isChecked){
-                hargaKamar = 300000
-            }
-
-            var totalPembayaran = jumlahKamar * hargaKamar
-
-            if (jumlahKamar <= 0){
-                Toast.makeText(this, "Jumlah kamar harus diatas 0", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
-            this.totalPembayaran.text = "$totalPembayaran"
         }
     }
 }
