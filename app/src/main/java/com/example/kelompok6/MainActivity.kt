@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -21,16 +21,16 @@ class MainActivity : AppCompatActivity() {
         val tv_cari = findViewById<TextView>(R.id.tv_cari)
         val textView = findViewById<TextView>(R.id.textView)
         val tv_bantuan = findViewById<TextView>(R.id.tv_bantuan)
-        val iv_kota = findViewById<ImageView>(R.id.iv_kota)
+//        val iv_kota = findViewById<TextView>(R.id.iv_kota)
 
         akunImageView.setOnClickListener {
             val intent = Intent(this, AkunActivity::class.java)
             startActivity(intent)
         }
-        iv_kota.setOnClickListener {
-            val intent = Intent(this, DetailHotelActivity::class.java)
-            startActivity(intent)
-        }
+//        iv_kota.setOnClickListener {
+//            val intent = Intent(this, TicketActivity::class.java)
+//            startActivity(intent)
+//        }
         tv_cari.setOnClickListener{
             replaceFragment(CariFragment())
         }
@@ -83,7 +83,6 @@ class MainActivity : AppCompatActivity() {
 
         val kota1 = Kota(R.drawable.ayomadiun, "Madiun")
         kotaList.add(kota1)
-
 
         val kota2 = Kota(R.drawable.ayomagetan, "Magetan")
         kotaList.add(kota2)

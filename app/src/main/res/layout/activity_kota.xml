@@ -7,6 +7,7 @@
     android:orientation="horizontal">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cv_kota"
         android:layout_width="100dp"
         android:layout_height="100dp"
         app:cardCornerRadius="10dp"
@@ -17,8 +18,7 @@
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/btn_hotel">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/iv_kota"
