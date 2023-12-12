@@ -1,29 +1,48 @@
 package com.example.kelompok6
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 
 class TicketActivity : AppCompatActivity() {
+    private lateinit var adapter: TicketAdapter
+
+    @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_hotel_ticket_list)
+        setContentView(R.layout.fragment_pemesanan)
         val recyclerView = findViewById<RecyclerView>(R.id.rv_hotelticket)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
         val ticketList = createTicketList()
-        val adapter = TicketAdapter(ticketList)
+        adapter = TicketAdapter(ticketList)
         recyclerView.adapter = adapter
     }
+
     private fun createTicketList(): MutableList<Ticket> {
         val ticketList = mutableListOf<Ticket>()
 
-        val ticket1 = Ticket("Hotel ABC", "2023-11-15", "Double Room", "2023-12-15")
-        ticketList.add(ticket1)
+        val databaseReference = FirebaseDatabase.getInstance().getReference("your_firebase_node")
+        databaseReference.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                for (dataSnapshot in snapshot.children) {
+                    val firebaseTicket = dataSnapshot.getValue(Ticket::class.java)
+                    firebaseTicket?.let { ticketList.add(it) }
+                }
+                // Notify the adapter after fetching the data
+                adapter.notifyDataSetChanged()
+            }
 
-        val ticket2 = Ticket("Hotel XYZ", "2023-11-20", "Suite Room", "2023-12-20")
-        ticketList.add(ticket2)
+            override fun onCancelled(error: DatabaseError) {
+                // Handle errors
+            }
+        })
 
         return ticketList
     }
