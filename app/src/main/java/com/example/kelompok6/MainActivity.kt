@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -21,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val tv_cari = findViewById<TextView>(R.id.tv_cari)
         val textView = findViewById<TextView>(R.id.textView)
         val tv_bantuan = findViewById<TextView>(R.id.tv_bantuan)
-//        val iv_kota = findViewById<TextView>(R.id.iv_kota)
+//        val iv_kota = findViewById<CardView>(R.id.cv_kota)
 
         akunImageView.setOnClickListener {
             val intent = Intent(this, AkunActivity::class.java)
@@ -43,6 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         val recyclerViewkota = findViewById<RecyclerView>(R.id.rv_kota)
         val recyclerViewWisata = findViewById<RecyclerView>(R.id.rv_wisata)
+
+        recyclerViewkota.setOnClickListener {
+            intent = Intent(this, DetailHotelActivity::class.java)
+            startActivity(intent)
+        }
 
         val kotaList = createKotaList()
         val adapter1 = KotaAdapter(kotaList)

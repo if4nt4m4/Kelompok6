@@ -10,33 +10,32 @@ import android.widget.ImageView
 import android.widget.TextView
 
 
-class KotaAdapter (private val kotalist: MutableList<Kota>): RecyclerView.Adapter<KotaAdapter.ViewHolder>() {
+class KotaAdapter(private val kotalist: MutableList<Kota>) : RecyclerView.Adapter<KotaAdapter.ViewHolder>() {
+
     private var onItemClickListener: OnItemClickListener? = null
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): KotaAdapter.ViewHolder {
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_kota, parent, false)
         return ViewHolder(view)
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addKota(kota: Kota){
+    fun addKota(kota: Kota) {
         kotalist.add(kota)
         notifyDataSetChanged()
     }
 
-    override fun onBindViewHolder(holder: KotaAdapter.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val kota = kotalist[position]
         holder.ivGambarKota.setImageResource(kota.gambarkota)
         holder.tvNamaKota.text = kota.namakota
-        holder.itemView.setOnClickListener {
-            onItemClickListener?.onItemClick(position)
-        }
     }
 
     override fun getItemCount(): Int {
         return kotalist.size
     }
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivGambarKota: ImageView = itemView.findViewById(R.id.iv_kota)
         val tvNamaKota: TextView = itemView.findViewById(R.id.tv_kota)
 
@@ -46,11 +45,12 @@ class KotaAdapter (private val kotalist: MutableList<Kota>): RecyclerView.Adapte
             }
         }
     }
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener){
+
+    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
         this.onItemClickListener = onItemClickListener
     }
-    interface OnItemClickListener{
+
+    interface OnItemClickListener {
         fun onItemClick(position: Int)
     }
-
 }
