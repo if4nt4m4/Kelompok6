@@ -42,11 +42,24 @@ class MainActivity : AppCompatActivity() {
         val kotaList = createKotaList()
         val adapter1 = KotaAdapter(kotaList)
         recyclerViewkota.adapter = adapter1
+        adapter1.setOnItemClickListener(object : KotaAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int) {
+                val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
+                intent.putExtra("namakota", createKotaList()[position].namakota)
+                startActivity(intent)
+            }
+        })
 
         val wisataList = createWisataList()
         val adapter2 = WisataAdapter(wisataList)
         recyclerViewWisata.adapter = adapter2
-
+        adapter2.setOnItemClickListener(object : WisataAdapter.OnItemClickListener{
+            override fun onItemClick(position: Int){
+                val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
+                intent.putExtra("namawisata", createWisataList()[position].namawisata)
+                startActivity(intent)
+            }
+        })
     }
 
     private fun replaceFragment(fragment: Fragment){
