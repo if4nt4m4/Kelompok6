@@ -40,8 +40,8 @@ class KotaAdapter(private val kotalist: MutableList<Kota>) : RecyclerView.Adapte
         val tvNamaKota: TextView = itemView.findViewById(R.id.tv_kota)
 
         init {
-            itemView.setOnClickListener {
-                onItemClickListener?.onItemClick(adapterPosition)
+            itemView.setOnClickListener { view ->
+                onItemClickListener?.onItemClick(view, adapterPosition)
             }
         }
     }
@@ -51,6 +51,6 @@ class KotaAdapter(private val kotalist: MutableList<Kota>) : RecyclerView.Adapte
     }
 
     interface OnItemClickListener {
-        fun onItemClick(position: Int)
+        fun onItemClick(view: View, position: Int)
     }
 }

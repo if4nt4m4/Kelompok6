@@ -118,30 +118,6 @@
                 android:text="Standard" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/tv_jmlhkmr"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="15sp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/black"
-            android:text="Jumlah Kamar : "
-            app:layout_constraintTop_toBottomOf="@id/rg_tipe_kamar"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/et_jmlh_kamar"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Masukkan Jumlah Kamar"
-            android:textColor="@color/black"
-            android:textSize="15sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tv_jmlhkmr"
-            app:layout_constraintStart_toEndOf="@id/tv_tipekamar"/>
-
-
         <Button
             android:id="@+id/btn_pesan_sekarang"
             android:layout_width="match_parent"
@@ -153,7 +129,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_jmlh_kamar" />
+            app:layout_constraintTop_toBottomOf="@id/rg_tipe_kamar" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

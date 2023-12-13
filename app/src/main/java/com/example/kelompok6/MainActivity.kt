@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
@@ -54,7 +55,8 @@ class MainActivity : AppCompatActivity() {
         val adapter1 = KotaAdapter(kotaList)
         recyclerViewkota.adapter = adapter1
         adapter1.setOnItemClickListener(object : KotaAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int) {
+            override fun onItemClick(view: View, position: Int) {
+                val kota = kotaList[position]
                 val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
                 intent.putExtra("namakota", createKotaList()[position].namakota)
                 startActivity(intent)
