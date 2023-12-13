@@ -46,4 +46,53 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    
+    <string name="text_bantuan">
+        Selamat datang di Aplikasi AYO!
+
+        Aplikasi ayo adalah alat yang berguna untuk membantu Anda merencanakan
+        dan mengelola penginapan Anda selama perjalanan. Di bawah ini, Anda akan
+        menemukan panduan singkat tentang cara menggunakan aplikasi kami
+
+        1. Pencarian Hotel
+            - Untuk mencari hotel, masukkan tujuan, tanggal check-in, dan tanggal
+              check-out Anda pada halaman beranda
+            - Anda dapat menggunakan fitur filter pencarian untuk menyaring hasil sesuai
+              dengan preferensi Anda seperti harga, bintang, fasilitas, dan lainnya
+        2. Pemilihan kamar
+            - Setelah menemukan hotel yang Anda suka, klik pada hotel tersebut untuk
+              melihat detailnya
+            - Anda dapat melihat berbagai tipe kamar dari yang tersedia, harga, dan
+              fasilitas yang disertakan. Pilih tipe kamar sesuai kebutuhan Anda.
+        3. Reservasi
+            - Setelah memilih kamar, klik tombol "Pesan" atau "Reservasi" di halaman
+              detail kamar.
+            -Anda akan diminta untuk mengisi informasi pribadi Anda dan detail
+              pembayaran. Pastikan semua informasi benar sebelum menyelesaikan
+              transaksi.
+        4. Konfirmasi Pembayaran
+            -Setelah menyelesaikan pembayaran, Anda akan menerima email konfirmasi
+             yang berisi rincian reservasi Anda
+            -Anda juga dapat melihat rincian reservasi di bagian "Riwayat Reservasi"
+             pada akun Anda.
+        5. Pengelolaan Reservasi
+            -Jika Anda perlu mengubah tanggal atau menghubungi hotel, gunakan opsi
+            "Kelola Reservasi" di aplikasi kami
+            -Anda dapat membatalkan atau mengubah reservasi sesuai dengan kebijakan
+            pembatalan hotel yang anda pilih
+        6. Penilaian dan Ulasan
+            -Setelah menginap, Anda dapat memberikan penilaian dan ulasan tentang
+             pengalaman Anda di hotel. Ulasan anda membantu calon tamu lain dalam
+             memilih tempat menginap
+        7. Pusat Bantuan
+            -Jika Anda mengalami masalah atau memiliki pertanyaan, kunjungi bagian
+             "Pusat Bantuan" di aplikasi kami. Anda dapat mencari jawaban atas
+             pertanyaan umum atau menghubungi tim dukungan kami
+
+        Terima kasih telah menggunakan Aplikasi Hotel kami. Kami berharap Anda
+        memiliki pengalaman menginap yang menyenangkan. Jika anda membutuhkan
+        bantuan lebih lanjut, jangan raguuntuk menghubungi kami.
+
+        Selamat Berwisata!
+    </string>
 </resources>
