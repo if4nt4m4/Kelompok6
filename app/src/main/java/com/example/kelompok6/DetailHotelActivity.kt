@@ -1,10 +1,11 @@
 package com.example.kelompok6
 
+import android.R
 import android.app.DatePickerDialog
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
-import android.view.View
+import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kelompok6.databinding.ActivityDetailHotelBinding
@@ -33,6 +34,7 @@ class DetailHotelActivity : AppCompatActivity() {
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
+                // Inside onDataChange method
                 if (snapshot.exists()) {
                     // Mendapatkan data hotel dari snapshot
                     for (hotelSnapshot in snapshot.children) {
@@ -41,7 +43,6 @@ class DetailHotelActivity : AppCompatActivity() {
                         // Menampilkan data hotel di antarmuka pengguna
                         binding.tvNamaHotel.text = hotel?.itemName
                         binding.tvAlamatHotel.text = hotel?.itemAddress
-                        // ... set data lainnya sesuai kebutuhan
 
                         // Menampilkan gambar jika ada
                         if (!hotel?.itemImg.isNullOrEmpty()) {
@@ -49,8 +50,16 @@ class DetailHotelActivity : AppCompatActivity() {
                             val bitmap = BitmapFactory.decodeByteArray(decodedImage, 0, decodedImage.size)
                             binding.ivHotel.setImageBitmap(bitmap)
                         }
+
+                        // Set up the Spinner
+                        val spinner: Spinner = binding.spinnerTipeKamar
+                        val tipeKamarList = listOf(hotel?.itemTK1, hotel?.itemTK2, hotel?.itemTK3)
+                        val adapter = CustomSpinnerAdapter(this@DetailHotelActivity, R.layout.simple_spinner_item, tipeKamarList)
+                        adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
+                        spinner.adapter = adapter
                     }
                 }
+
             }
 
             override fun onCancelled(error: DatabaseError) {
