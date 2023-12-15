@@ -1,6 +1,7 @@
 package com.example.kelompok6
 
 import android.content.Context
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -24,6 +25,7 @@ class CustomSpinnerAdapter(context: Context, resource: Int, items: List<String?>
 
         val textView = rowView.findViewById<TextView>(android.R.id.text1)
         textView.text = getItem(position)
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 23F) // Set the text size here
 
         return rowView
     }
