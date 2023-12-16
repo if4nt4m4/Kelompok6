@@ -159,7 +159,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tanggal Check In"
-            android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
@@ -168,7 +167,6 @@
             android:id="@+id/tv_tglpesan"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:hint="Tangal Check In"
             tools:ignore="HardcodedText" />
 
@@ -177,7 +175,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Tanggal Check Out"
-            android:layout_marginStart="10dp"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
@@ -186,7 +183,6 @@
             android:id="@+id/tv_tglkeluar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="10dp"
             android:hint="Tanggal Check Out"
             tools:ignore="HardcodedText" />
 
@@ -195,7 +191,6 @@
             android:layout_width="match_parent" android:layout_height="wrap_content"
             android:text="Pemesan"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:textStyle="bold"
             android:textSize="15sp"
             android:textColor="@color/black"/>
@@ -351,7 +346,7 @@
             android:id="@+id/tv_total_pembayaran"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="2500000"
+            android:text=""
             android:textColor="#ff0000"
             android:textSize="30sp"
             android:textStyle="bold"

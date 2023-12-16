@@ -4,14 +4,18 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.cardview.widget.CardView
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.navigation.NavigationView
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -19,6 +23,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var databaseReference: DatabaseReference
     private lateinit var wisataList: MutableList<Wisata>
     private lateinit var adapter: WisataAdapter
+    private lateinit var drawerLayout: DrawerLayout
+    private lateinit var toggle: ActionBarDrawerToggle
+    private lateinit var navigationView: NavigationView
+
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -81,6 +89,39 @@ class MainActivity : AppCompatActivity() {
                 startActivity(intent)
             }
         })
+
+        drawerLayout = findViewById(R.id.drawerLayout)
+        toggle = ActionBarDrawerToggle(this, drawerLayout, R.string.open, R.string.close)
+        drawerLayout.addDrawerListener(toggle)
+        toggle.syncState()
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        navigationView = findViewById(R.id.navigationView)
+        navigationView.setNavigationItemSelectedListener { menuItem ->
+            // Handle menu item clicks here
+            when (menuItem.itemId) {
+                R.id.menu_orders -> {
+                    val intent = Intent(this, TicketActivity::class.java)
+                    startActivity(intent)
+                    true
+                }
+                R.id.menu_help -> {
+                    // Handle item 2 click
+                    // ...
+                    true
+                }
+                // Add more menu items as needed
+                else -> false
+            }
+        }
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (toggle.onOptionsItemSelected(item)) {
+            return true
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun replaceFragment(fragment: Fragment){
