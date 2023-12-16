@@ -11,6 +11,11 @@ import androidx.recyclerview.widget.RecyclerView
 
 class WisataAdapter(private val wisataList: MutableList<Wisata> ) : RecyclerView.Adapter<WisataAdapter.ViewHolder>(){
     private var onItemClickListener: OnItemClickListener?=null
+    private var filteredList: MutableList<Wisata> = mutableListOf()
+
+    init {
+        filteredList.addAll(wisataList)
+    }
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WisataAdapter.ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_wisata, parent, false)
         return ViewHolder(view)
@@ -32,6 +37,13 @@ class WisataAdapter(private val wisataList: MutableList<Wisata> ) : RecyclerView
     override fun getItemCount(): Int {
         return wisataList.size
     }
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun filterList(filteredList: MutableList<Wisata>) {
+        this.filteredList = filteredList
+        notifyDataSetChanged()
+    }
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val ivGambarWisata: ImageView = itemView.findViewById(R.id.iv_wisata)
         val tvNamaWisata: TextView = itemView.findViewById(R.id.tv_wisata)
