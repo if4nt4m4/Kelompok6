@@ -12,12 +12,20 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var databaseReference: DatabaseReference
+    private lateinit var wisataList: MutableList<Wisata>
+    private lateinit var adapter: WisataAdapter
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
+        databaseReference = FirebaseDatabase.getInstance().getReference("wisata")
 
         val akunImageView = findViewById<ImageView>(R.id.iv_akun)
         val tv_cari = findViewById<TextView>(R.id.tv_cari)
@@ -81,7 +89,7 @@ class MainActivity : AppCompatActivity() {
         transaction.addToBackStack(null)
         transaction.commit()
     }
-    private fun createWisataList(): MutableList<Wisata> {
+    internal fun createWisataList(): MutableList<Wisata> {
         val wisataList = mutableListOf<Wisata>()
 
         val wisata1 = Wisata(R.drawable.wisata1, "Monumen Kresek")
