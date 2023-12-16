@@ -20,12 +20,12 @@ class DetailPembayaranActivity : AppCompatActivity() {
 
         binding.btnCetakPesan.setOnClickListener {
             val pemesanan = hashMapOf(
-                "namaHotel" to binding.tvNmhotel.text.toString(),
+                "namaHotel" to binding.tvNamalngkp.text.toString(),
                 "alamat" to binding.tvAlamatHotel.text.toString(),
                 "tipekamar" to binding.tvTipekamar.text.toString(),
                 "jumlahPembayaran" to binding.tvJmlhpembayaran.text.toString(),
-                "tanggalCheckIn" to binding.etTglpesan.text.toString(),
-                "tanggalCheckOut" to binding.etTglkeluar.text.toString(),
+                "tanggalCheckIn" to binding.tvTglpesan.text.toString(),
+                "tanggalCheckOut" to binding.tvTglkeluar.text.toString(),
                 "namaPemesan" to binding.etNamapemesan.text.toString(),
                 "noHp" to binding.etNohpUser.text.toString(),
                 "email" to binding.etEmailUser.text.toString(),
@@ -40,14 +40,18 @@ class DetailPembayaranActivity : AppCompatActivity() {
         }
 
         // Ambil data dari Intent
+        val namaHotel = intent.getStringExtra("NamaHotel")
+        val alamatHotel = intent.getStringExtra("alamatHotel")
         val tanggalCheckIn = intent.getStringExtra("tanggalCheckIn")
         val tanggalCheckOut = intent.getStringExtra("tanggalCheckOut")
         val tipeKamar = intent.getStringExtra("tipeKamar")
         val hargaTipeKamar = intent.getIntExtra("hargaTipeKamar", 0)
 
         // Tampilkan data di TextView atau EditText sesuai kebutuhan
-        binding.etTglpesan.setText(tanggalCheckIn)
-        binding.etTglkeluar.setText(tanggalCheckOut)
+        binding.tvNamalngkp.setText(namaHotel)
+        binding.tvAlamatHotel.setText(alamatHotel)
+        binding.tvTglpesan.setText(tanggalCheckIn)
+        binding.tvTglkeluar.setText(tanggalCheckOut)
         binding.tvTipekamar.text = tipeKamar
         binding.tvJmlhpembayaran.text = hargaTipeKamar.toString()
 
