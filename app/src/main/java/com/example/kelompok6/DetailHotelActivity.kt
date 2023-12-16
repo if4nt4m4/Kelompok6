@@ -2,6 +2,7 @@ package com.example.kelompok6
 
 import android.R
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
@@ -53,8 +54,12 @@ class DetailHotelActivity : AppCompatActivity() {
 
                         // Menampilkan gambar jika ada
                         if (!hotel?.itemImg.isNullOrEmpty()) {
-                            val decodedImage = android.util.Base64.decode(hotel?.itemImg, android.util.Base64.DEFAULT)
-                            val bitmap = BitmapFactory.decodeByteArray(decodedImage, 0, decodedImage.size)
+                            val decodedImage = android.util.Base64.decode(
+                                hotel?.itemImg,
+                                android.util.Base64.DEFAULT
+                            )
+                            val bitmap =
+                                BitmapFactory.decodeByteArray(decodedImage, 0, decodedImage.size)
                             binding.ivHotel.setImageBitmap(bitmap)
                         }
 
@@ -65,22 +70,31 @@ class DetailHotelActivity : AppCompatActivity() {
                             Pair(hotel?.itemTK2, hotel?.itemHTK2),
                             Pair(hotel?.itemTK3, hotel?.itemHTK3)
                         )
-                        val adapter = CustomSpinnerAdapter(this@DetailHotelActivity, R.layout.simple_spinner_item, tipeKamarList.map { it.first })
+                        val adapter = CustomSpinnerAdapter(
+                            this@DetailHotelActivity,
+                            R.layout.simple_spinner_item,
+                            tipeKamarList.map { it.first })
                         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
                         spinner.adapter = adapter
 
                         // Set listener for Spinner item selection
-                        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-                            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
-                                // Update the TextView for harga tipe kamar
-                                val hargaTipeKamar = tipeKamarList[position].second ?: 0
-                                binding.tvHargaTipeKamar.text = hargaTipeKamar.toString()
-                            }
+                        spinner.onItemSelectedListener =
+                            object : AdapterView.OnItemSelectedListener {
+                                override fun onItemSelected(
+                                    parentView: AdapterView<*>?,
+                                    selectedItemView: View?,
+                                    position: Int,
+                                    id: Long
+                                ) {
+                                    // Update the TextView for harga tipe kamar
+                                    val hargaTipeKamar = tipeKamarList[position].second ?: 0
+                                    binding.tvHargaTipeKamar.text = hargaTipeKamar.toString()
+                                }
 
-                            override fun onNothingSelected(parentView: AdapterView<*>?) {
-                                // Do nothing here
+                                override fun onNothingSelected(parentView: AdapterView<*>?) {
+                                    // Do nothing here
+                                }
                             }
-                        }
 
                     }
                 }
@@ -100,8 +114,22 @@ class DetailHotelActivity : AppCompatActivity() {
             showDatePickerDialog(binding.tvTanggalCheckOut)
         }
 
+        // Handle button click
         binding.btnPesanSekarang.setOnClickListener {
-            // Logika untuk menangani tombol pesan sekarang
+            // Ambil data yang diperlukan dari tampilan
+            val tanggalCheckIn = binding.tvTanggalCheckIn.text.toString()
+            val tanggalCheckOut = binding.tvTanggalCheckOut.text.toString()
+            val tipeKamar = binding.spinnerTipeKamar.selectedItem.toString()
+            val hargaTipeKamar = binding.tvHargaTipeKamar.text.toString().replace("Harga: ", "").toInt()
+
+            // Gunakan Intent untuk berpindah ke DetailPembayaranActivity
+            val intent = Intent(this@DetailHotelActivity, DetailPembayaranActivity::class.java).apply {
+                putExtra("tanggalCheckIn", tanggalCheckIn)
+                putExtra("tanggalCheckOut", tanggalCheckOut)
+                putExtra("tipeKamar", tipeKamar)
+                putExtra("hargaTipeKamar", hargaTipeKamar)
+            }
+            startActivity(intent)
         }
     }
 
