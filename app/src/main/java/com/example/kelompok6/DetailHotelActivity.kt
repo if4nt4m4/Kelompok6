@@ -29,8 +29,13 @@ class DetailHotelActivity : AppCompatActivity() {
         // Initialize TextView for selected date
         selectedDateTextView = binding.tvTanggalCheckIn // Update this line
 
-        // Query untuk mendapatkan data hotel dengan itemName "ayo fahrul"
-        val query = database.child("Hotel").orderByChild("itemName").equalTo("ayo fahrul")
+        val namakota = intent.getStringExtra("namakota")
+
+        // Menyusun nama hotel dengan format "AYO [namakota]"
+        val namaHotel = "AYO $namakota"
+
+        // Query untuk mendapatkan data hotel dengan nama yang sesuai
+        val query = database.child("Hotel").orderByChild("itemName").equalTo(namaHotel)
 
         query.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -59,7 +64,6 @@ class DetailHotelActivity : AppCompatActivity() {
                         spinner.adapter = adapter
                     }
                 }
-
             }
 
             override fun onCancelled(error: DatabaseError) {
