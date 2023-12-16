@@ -117,6 +117,8 @@ class DetailHotelActivity : AppCompatActivity() {
         // Handle button click
         binding.btnPesanSekarang.setOnClickListener {
             // Ambil data yang diperlukan dari tampilan
+            val NamaHotel = binding.tvNamaHotel.text.toString()
+            val alamatHotel = binding.tvAlamatHotel.text.toString()
             val tanggalCheckIn = binding.tvTanggalCheckIn.text.toString()
             val tanggalCheckOut = binding.tvTanggalCheckOut.text.toString()
             val tipeKamar = binding.spinnerTipeKamar.selectedItem.toString()
@@ -124,6 +126,8 @@ class DetailHotelActivity : AppCompatActivity() {
 
             // Gunakan Intent untuk berpindah ke DetailPembayaranActivity
             val intent = Intent(this@DetailHotelActivity, DetailPembayaranActivity::class.java).apply {
+                putExtra("NamaHotel", NamaHotel)
+                putExtra("alamatHotel", alamatHotel)
                 putExtra("tanggalCheckIn", tanggalCheckIn)
                 putExtra("tanggalCheckOut", tanggalCheckOut)
                 putExtra("tipeKamar", tipeKamar)
