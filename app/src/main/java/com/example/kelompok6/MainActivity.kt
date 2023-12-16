@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity() {
         recyclerViewWisata.adapter = adapter2
         adapter2.setOnItemClickListener(object : WisataAdapter.OnItemClickListener{
             override fun onItemClick(position: Int){
-                val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
+//                val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
                 intent.putExtra("namawisata", createWisataList()[position].namawisata)
                 startActivity(intent)
             }
