@@ -13,7 +13,8 @@ class DetailPembayaranActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailPembayaranBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_detail_pembayaran)
+        binding = ActivityDetailPembayaranBinding.inflate(layoutInflater)
+        setContentView(binding.root)
 
         databaseReference = FirebaseDatabase.getInstance().reference
 
@@ -37,5 +38,18 @@ class DetailPembayaranActivity : AppCompatActivity() {
                 Toast.makeText(this,"Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
             }
         }
+
+        // Ambil data dari Intent
+        val tanggalCheckIn = intent.getStringExtra("tanggalCheckIn")
+        val tanggalCheckOut = intent.getStringExtra("tanggalCheckOut")
+        val tipeKamar = intent.getStringExtra("tipeKamar")
+        val hargaTipeKamar = intent.getIntExtra("hargaTipeKamar", 0)
+
+        // Tampilkan data di TextView atau EditText sesuai kebutuhan
+        binding.etTglpesan.setText(tanggalCheckIn)
+        binding.etTglkeluar.setText(tanggalCheckOut)
+        binding.tvTipekamar.text = tipeKamar
+        binding.tvJmlhpembayaran.text = hargaTipeKamar.toString()
+
     }
 }
