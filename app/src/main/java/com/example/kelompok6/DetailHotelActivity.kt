@@ -31,7 +31,7 @@ class DetailHotelActivity : AppCompatActivity() {
 
         val namakota = intent.getStringExtra("namakota")
 
-        // Menyusun nama hotel dengan format "AYO [namakota]"
+        //Menyusun nama hotel dengan format "AYO [namakota]"
         val namaHotel = "AYO $namakota"
 
         // Query untuk mendapatkan data hotel dengan nama yang sesuai
