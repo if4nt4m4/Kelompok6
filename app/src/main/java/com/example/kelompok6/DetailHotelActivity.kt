@@ -5,6 +5,8 @@ import android.app.DatePickerDialog
 import android.graphics.BitmapFactory
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.AdapterView
 import android.widget.Spinner
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
@@ -58,10 +60,28 @@ class DetailHotelActivity : AppCompatActivity() {
 
                         // Set up the Spinner
                         val spinner: Spinner = binding.spinnerTipeKamar
-                        val tipeKamarList = listOf(hotel?.itemTK1, hotel?.itemTK2, hotel?.itemTK3)
-                        val adapter = CustomSpinnerAdapter(this@DetailHotelActivity, R.layout.simple_spinner_item, tipeKamarList)
+                        val tipeKamarList = listOf(
+                            Pair(hotel?.itemTK1, hotel?.itemHTK1),
+                            Pair(hotel?.itemTK2, hotel?.itemHTK2),
+                            Pair(hotel?.itemTK3, hotel?.itemHTK3)
+                        )
+                        val adapter = CustomSpinnerAdapter(this@DetailHotelActivity, R.layout.simple_spinner_item, tipeKamarList.map { it.first })
                         adapter.setDropDownViewResource(R.layout.simple_spinner_dropdown_item)
                         spinner.adapter = adapter
+
+                        // Set listener for Spinner item selection
+                        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                            override fun onItemSelected(parentView: AdapterView<*>?, selectedItemView: View?, position: Int, id: Long) {
+                                // Update the TextView for harga tipe kamar
+                                val hargaTipeKamar = tipeKamarList[position].second ?: 0
+                                binding.tvHargaTipeKamar.text = hargaTipeKamar.toString()
+                            }
+
+                            override fun onNothingSelected(parentView: AdapterView<*>?) {
+                                // Do nothing here
+                            }
+                        }
+
                     }
                 }
             }
