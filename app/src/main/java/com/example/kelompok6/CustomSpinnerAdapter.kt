@@ -25,7 +25,7 @@ class CustomSpinnerAdapter(context: Context, resource: Int, items: List<String?>
 
         val textView = rowView.findViewById<TextView>(android.R.id.text1)
         textView.text = getItem(position)
-        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 23F) // Set the text size here
+        textView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20F) // Set the text size here
 
         return rowView
     }

@@ -42,14 +42,14 @@
 
         <TextView
             android:id="@+id/tv_alamat_hotel_title"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="185dp"
+            android:layout_height="43dp"
+            android:padding="10dp"
             android:text="Alamat Hotel:"
             android:textSize="18sp"
             android:textStyle="bold"
-            android:padding="10dp"
-            app:layout_constraintTop_toBottomOf="@+id/tv_nama_hotel"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_nama_hotel" />
 
         <TextView
             android:id="@+id/tv_alamat_hotel"
@@ -63,35 +63,55 @@
             app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
+            android:id="@+id/tv_tanggal_check_in_title"
+            android:layout_width="184dp"
+            android:layout_height="55dp"
+            android:padding="14dp"
+            android:text="Tanggal Check In:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_alamat_hotel" />
+
+        <TextView
             android:id="@+id/tv_tanggal_check_in"
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="Tanggal Check In"
             android:textSize="18sp"
-            android:textStyle="bold"
             android:padding="14dp"
             app:layout_constraintTop_toBottomOf="@+id/tv_alamat_hotel"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@id/tv_tanggal_check_in_title"
             app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true" />
 
         <TextView
-            android:id="@+id/tv_tanggal_check_out"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tanggal Check Out"
+            android:id="@+id/tv_tanggal_check_out_title"
+            android:layout_width="184dp"
+            android:layout_height="53dp"
+            android:text="Tanggal Check Out:"
             android:textSize="18sp"
             android:textStyle="bold"
             android:padding="14dp"
             app:layout_constraintTop_toBottomOf="@+id/tv_tanggal_check_in"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_tanggal_check_out"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Tanggal Check Out"
+            android:textSize="18sp"
+            android:padding="14dp"
+            app:layout_constraintTop_toBottomOf="@+id/tv_tanggal_check_in"
+            app:layout_constraintStart_toEndOf="@id/tv_tanggal_check_out_title"
             app:layout_constraintEnd_toEndOf="parent"
             android:clickable="true" />
 
         <TextView
             android:id="@+id/tv_tipekamar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="53dp"
             android:text="Pilih Tipe Kamar"
             android:textSize="18sp"
             android:padding="10dp"
@@ -103,7 +123,7 @@
         <Spinner
             android:id="@+id/spinner_tipe_kamar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="55dp"
             app:layout_constraintTop_toBottomOf="@id/tv_tipekamar"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
