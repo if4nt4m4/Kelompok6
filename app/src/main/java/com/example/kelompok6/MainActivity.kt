@@ -62,11 +62,11 @@ class MainActivity : AppCompatActivity() {
         val kotaList = createKotaList()
         val adapter1 = KotaAdapter(kotaList)
         recyclerViewkota.adapter = adapter1
-        adapter1.setOnItemClickListener(object : KotaAdapter.OnItemClickListener{
+        adapter1.setOnItemClickListener(object : KotaAdapter.OnItemClickListener {
             override fun onItemClick(view: View, position: Int) {
                 val kota = kotaList[position]
                 val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
-                intent.putExtra("namakota", createKotaList()[position].namakota)
+                intent.putExtra("namakota", kota.namakota)
                 startActivity(intent)
             }
         })
