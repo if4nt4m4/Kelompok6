@@ -11,6 +11,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.kelompok6.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
 
