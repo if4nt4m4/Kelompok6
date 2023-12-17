@@ -1,6 +1,7 @@
 package com.example.kelompok6
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -31,6 +32,16 @@ class TicketActivity : AppCompatActivity() {
 
         // Panggil metode untuk menampilkan tiket berdasarkan email
         displayTicketsByEmail(userEmail)
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+
+        // Navigate back to MainActivity
+        val intent = Intent(this, MainActivity::class.java)
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_ACTIVITY_SINGLE_TOP)
+        startActivity(intent)
+        finish()
     }
 
     private fun displayTicketsByEmail(email: String?) {
