@@ -16,6 +16,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         FirebaseDatabase.getInstance().setPersistenceEnabled(true)
-        databaseReference = FirebaseDatabase.getInstance().getReference("wisata")
+//        databaseReference = FirebaseDatabase.getInstance().getReference("wisata")
 
         val akunImageView = findViewById<ImageView>(R.id.iv_akun)
         val tv_cari = findViewById<TextView>(R.id.tv_cari)
@@ -49,13 +50,13 @@ class MainActivity : AppCompatActivity() {
 //            val intent = Intent(this, TicketActivity::class.java)
 //            startActivity(intent)
 //        }
-        tv_cari.setOnClickListener{
+        tv_cari.setOnClickListener {
             replaceFragment(CariFragment())
         }
         textView.setOnClickListener {
             replaceFragment(PemesananFragment())
         }
-        tv_bantuan.setOnClickListener{
+        tv_bantuan.setOnClickListener {
             replaceFragment(BantuanFragment())
         }
 
@@ -82,8 +83,8 @@ class MainActivity : AppCompatActivity() {
         val wisataList = createWisataList()
         val adapter2 = WisataAdapter(wisataList)
         recyclerViewWisata.adapter = adapter2
-        adapter2.setOnItemClickListener(object : WisataAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int){
+        adapter2.setOnItemClickListener(object : WisataAdapter.OnItemClickListener {
+            override fun onItemClick(position: Int) {
 //                val intent = Intent(this@MainActivity, DetailHotelActivity::class.java)
                 intent.putExtra("namawisata", createWisataList()[position].namawisata)
                 startActivity(intent)
@@ -102,27 +103,37 @@ class MainActivity : AppCompatActivity() {
             // Handle menu item clicks here
             when (menuItem.itemId) {
                 R.id.menu_orders -> {
-                    val intent = Intent(this, TicketActivity::class.java)
-                    startActivity(intent)
+                    val userEmail = getUserEmail()
+                    if (userEmail != null) {
+                        val intent = Intent(this, TicketActivity::class.java)
+                        intent.putExtra("email", userEmail)
+                        startActivity(intent)
+                    } else {
+                        // Handle the case where the user is not logged in
+                        // or the email cannot be retrieved
+                    }
                     true
                 }
-                R.id.menu_help -> {
-                    // Handle item 2 click
-                    // ...
-                    true
-                }
-                // Add more menu items as needed
+                // Other menu items...
                 else -> false
             }
         }
     }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (toggle.onOptionsItemSelected(item)) {
             return true
         }
         return super.onOptionsItemSelected(item)
     }
+
+
+    private fun getUserEmail(): String? {
+        val user = FirebaseAuth.getInstance().currentUser
+        return user?.email
+    }
+
 
     private fun replaceFragment(fragment: Fragment){
         val transaction = supportFragmentManager.beginTransaction()
