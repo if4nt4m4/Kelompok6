@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.cardview.widget.CardView
 import androidx.drawerlayout.widget.DrawerLayout
@@ -30,10 +31,10 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("MissingInflatedId", "WrongViewCast")
     override fun onCreate(savedInstanceState: Bundle?) {
+        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        FirebaseDatabase.getInstance().setPersistenceEnabled(true)
 //        databaseReference = FirebaseDatabase.getInstance().getReference("wisata")
 
         val akunImageView = findViewById<ImageView>(R.id.iv_akun)
@@ -109,9 +110,14 @@ class MainActivity : AppCompatActivity() {
                         intent.putExtra("email", userEmail)
                         startActivity(intent)
                     } else {
-                        // Handle the case where the user is not logged in
-                        // or the email cannot be retrieved
+                        Toast.makeText(this, "Silahkan Login Terlebih Dahulu", Toast.LENGTH_SHORT).show()
                     }
+                    true
+                }
+
+                R.id.menu_help -> {
+                    // Open BantuanFragment when "About" is selected
+                    replaceFragment(BantuanFragment())
                     true
                 }
                 // Other menu items...
@@ -127,7 +133,6 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
 
     private fun getUserEmail(): String? {
         val user = FirebaseAuth.getInstance().currentUser
