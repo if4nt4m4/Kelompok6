@@ -49,43 +49,49 @@ class DetailPembayaranActivity : AppCompatActivity() {
         })
 
         binding.btnCetakPesan.setOnClickListener {
-            val jumlahPembayaranStr = binding.tvJmlhpembayaran.text.toString()
-            val jumlahPembayaran = if (jumlahPembayaranStr.isNotEmpty()) {
-                jumlahPembayaranStr.toInt()
+            val jumlahKamarStr = binding.etJmlhKamar.text.toString()
+
+            if (jumlahKamarStr.isNotEmpty()) {
+                val jumlahKamar = jumlahKamarStr.toInt()
+                val hargaTipeKamar = intent.getIntExtra("hargaTipeKamar", 0)
+                val jumlahPembayaran = hargaTipeKamar * jumlahKamar
+
+                // Memperbarui TextView total pembayaran
+                val tvTotalPembayaran = findViewById<TextView>(R.id.tv_total_pembayaran)
+                tvTotalPembayaran.text = jumlahPembayaran.toString()
+
+                val kodePembayaran = generatePaymentCode()
+
+                val pemesanan = hashMapOf(
+                    "namaHotel" to binding.tvNamalngkp.text.toString(),
+                    "alamat" to binding.tvAlamatHotel.text.toString(),
+                    "tipekamar" to binding.tvTipekamar.text.toString(),
+                    "jumlahPembayaran" to jumlahPembayaran.toString(),
+                    "tanggalCheckIn" to binding.tvTglpesan.text.toString(),
+                    "tanggalCheckOut" to binding.tvTglkeluar.text.toString(),
+                    "namaPemesan" to binding.etNamapemesan.text.toString(),
+                    "noHp" to binding.etNohpUser.text.toString(),
+                    "email" to binding.etEmailUser.text.toString(),
+                    "umur" to binding.etUmuruser.text.toString(),
+                    "kodePembayaran" to kodePembayaran
+                )
+
+                databaseReference.child("Pemesanan").push().setValue(pemesanan)
+                    .addOnSuccessListener {
+                        Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
+
+                        val intent = Intent(this, MainActivity::class.java)
+                        intent.putExtra("email", binding.etEmailUser.text.toString())
+                        startActivity(intent)
+                    }
+                    .addOnFailureListener {
+                        Toast.makeText(this, "Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
+                    }
             } else {
-                0
+                Toast.makeText(this, "Masukkan jumlah kamar terlebih dahulu", Toast.LENGTH_SHORT).show()
             }
-
-            val kodePembayaran = generatePaymentCode()
-
-            val pemesanan = hashMapOf(
-                "namaHotel" to binding.tvNamalngkp.text.toString(),
-                "alamat" to binding.tvAlamatHotel.text.toString(),
-                "tipekamar" to binding.tvTipekamar.text.toString(),
-                "jumlahPembayaran" to jumlahPembayaran.toString(),
-                "tanggalCheckIn" to binding.tvTglpesan.text.toString(),
-                "tanggalCheckOut" to binding.tvTglkeluar.text.toString(),
-                "namaPemesan" to binding.etNamapemesan.text.toString(),
-                "noHp" to binding.etNohpUser.text.toString(),
-                "email" to binding.etEmailUser.text.toString(),
-                "umur" to binding.etUmuruser.text.toString(),
-                "kodePembayaran" to kodePembayaran
-            )
-
-            databaseReference.child("Pemesanan").push().setValue(pemesanan)
-                .addOnSuccessListener {
-                    Toast.makeText(this, "Data berhasil ditambahkan", Toast.LENGTH_SHORT).show()
-                    val tvTotalPembayaran = findViewById<TextView>(R.id.tv_total_pembayaran)
-                    tvTotalPembayaran.text = jumlahPembayaran.toString()
-
-                    val intent = Intent(this, TicketActivity::class.java)
-                    intent.putExtra("email", binding.etEmailUser.text.toString())
-                    startActivity(intent)
-                }
-                .addOnFailureListener {
-                    Toast.makeText(this, "Data gagal ditambahkan", Toast.LENGTH_SHORT).show()
-                }
         }
+
 
         // Ambil data dari Intent
         val namaHotel = intent.getStringExtra("NamaHotel")
