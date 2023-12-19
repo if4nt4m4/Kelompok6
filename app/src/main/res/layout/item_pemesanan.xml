@@ -3,32 +3,45 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="@android:color/background_light">
 
     <TextView
         android:id="@+id/hotelNameTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nama Hotel" />
+        android:text="Nama Hotel"
+        android:textColor="@android:color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="4dp"/>
 
     <TextView
         android:id="@+id/bookingDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tanggal Pemesanan" />
+        android:text="Tanggal Pemesanan"
+        android:textColor="@android:color/darker_gray"
+        android:textSize="14sp"
+        android:paddingBottom="4dp"/>
 
     <TextView
         android:id="@+id/roomDetailsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detail Kamar" />
+        android:text="Detail Kamar"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:textStyle="italic"
+        android:paddingBottom="4dp"/>
 
     <TextView
         android:id="@+id/dueDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Kode Pembayaran" />
+        android:text="Kode Pembayaran"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="16sp"
+        android:textStyle="bold"/>
 
 </LinearLayout>
-
-
