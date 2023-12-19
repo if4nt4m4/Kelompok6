@@ -58,7 +58,7 @@ class TicketActivity : AppCompatActivity() {
                     for (dataSnapshot in snapshot.children) {
                         val namaHotel = dataSnapshot.child("namaHotel").getValue(String::class.java)
                         val alamat = dataSnapshot.child("alamat").getValue(String::class.java)
-                        val tipeKamar = dataSnapshot.child("tipeKamar").getValue(String::class.java)
+                        val tipekamar = dataSnapshot.child("tipekamar").getValue(String::class.java)
                         val jumlahPembayaran = dataSnapshot.child("jumlahPembayaran").getValue(String::class.java)
                         val tanggalCheckIn = dataSnapshot.child("tanggalCheckIn").getValue(String::class.java)
                         val tanggalCheckOut = dataSnapshot.child("tanggalCheckOut").getValue(String::class.java)
@@ -71,7 +71,7 @@ class TicketActivity : AppCompatActivity() {
                         val firebaseTicket = Ticket(
                             namaHotel = namaHotel.orEmpty(),
                             alamat = alamat.orEmpty(),
-                            tipeKamar = tipeKamar.orEmpty(),
+                            tipekamar = tipekamar.orEmpty(),
                             jumlahPembayaran = jumlahPembayaran.orEmpty(),
                             tanggalCheckIn = tanggalCheckIn.orEmpty(),
                             tanggalCheckOut = tanggalCheckOut.orEmpty(),

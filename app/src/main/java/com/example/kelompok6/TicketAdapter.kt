@@ -26,7 +26,8 @@ class TicketAdapter(private var ticketList: MutableList<Ticket>) :
         // Setel data tiket yang sesuai pada TextView di ViewHolder
         holder.hotelNameTextView.text = ticket.namaHotel
         holder.bookingDateTextView.text = "Check-in: ${ticket.tanggalCheckIn} | Check-out: ${ticket.tanggalCheckOut}"
-        holder.roomDetailsTextView.text = "Jumlah Bayar: ${ticket.jumlahPembayaran}"
+        holder.roomDetailsTextView.text = "Detail Kamar: ${ticket.tipekamar}"
+        holder.jumlahPembayaran.text = "Jumlah Bayar: ${ticket.jumlahPembayaran}"
         holder.dueDateTextView.text = "Kode Pembayaran: ${ticket.kodePembayaran}"
     }
 
@@ -38,6 +39,7 @@ class TicketAdapter(private var ticketList: MutableList<Ticket>) :
         val hotelNameTextView: TextView = itemView.findViewById(R.id.hotelNameTextView)
         val bookingDateTextView: TextView = itemView.findViewById(R.id.bookingDateTextView)
         val roomDetailsTextView: TextView = itemView.findViewById(R.id.roomDetailsTextView)
+        val jumlahPembayaran: TextView = itemView.findViewById(R.id.jmlPembayaran)
         val dueDateTextView: TextView = itemView.findViewById(R.id.dueDateTextView)
     }
 }
