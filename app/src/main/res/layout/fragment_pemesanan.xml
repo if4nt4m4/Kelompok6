@@ -32,7 +32,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_hotelticket"
         android:layout_width="match_parent"
-        android:layout_height="665dp"
+        android:layout_height="657dp"
         android:clipToPadding="false"
         android:padding="16dp"
         app:layout_constraintBottom_toBottomOf="parent"

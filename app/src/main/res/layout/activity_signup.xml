@@ -8,7 +8,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="569dp"
+        android:layout_alignParentBottom="true"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
@@ -23,20 +24,20 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/app_logo"
                 android:layout_gravity="center"
+                android:src="@mipmap/app_logo"
                 tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/tv_lewati"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Lewati"
-                android:paddingTop="13dp"
-                android:textSize="15sp"
                 android:paddingStart="100dp"
+                android:paddingTop="13dp"
+                android:text="Lewati"
+                android:textSize="15sp"
                 android:textStyle="bold"
-                tools:ignore="RtlSymmetry"/>
+                tools:ignore="RtlSymmetry" />
 
         </LinearLayout>
 
@@ -55,12 +56,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Nama Depan   "
+                    android:importantForAutofill="no"
                     android:padding="10dp"
                     android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:importantForAutofill="no"
                     tools:ignore="TextFields" />
 
                 <EditText
@@ -68,12 +69,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:hint="Nama Belakang"
-                    android:textSize="20sp"
+                    android:importantForAutofill="no"
                     android:padding="10dp"
+                    android:textSize="20sp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    android:importantForAutofill="no"
                     tools:ignore="TextFields" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
@@ -83,21 +84,21 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email ID"
-                android:padding="20dp"/>
+                android:padding="20dp" />
 
             <EditText
                 android:id="@+id/et_pwdsignup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:padding="20dp"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword"
+                android:padding="20dp" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
-                android:text="Password bisa menggunakan huruf, angka, dan karakter"/>
+                android:text="Password bisa menggunakan huruf, angka, dan karakter" />
 
         </LinearLayout>
 
@@ -105,10 +106,10 @@
             android:id="@+id/bt_daftar"
             android:layout_width="318dp"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:paddingStart="20dp"
             android:text="Daftar"
-            tools:ignore="RtlSymmetry"
-            android:layout_gravity="center"/>
+            tools:ignore="RtlSymmetry" />
 
     </LinearLayout>
 
